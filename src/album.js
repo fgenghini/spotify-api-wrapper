@@ -1,12 +1,13 @@
-import SPOTIFY_API_URL from './config';
+import APP_CONFIG from './config';
+import toJSON from './utils';
 
 /* global fetch */
 
 export const album = id =>
-  fetch(`${SPOTIFY_API_URL}/albums/${id}`).then(data => data.json);
+  fetch(`${APP_CONFIG.SPOTIFY_API_URL}/albums/${id}`).then(toJSON);
 
 export const albums = ids =>
-  fetch(`${SPOTIFY_API_URL}/albums/?ids=${ids}`).then(data => data.json);
+  fetch(`${APP_CONFIG.SPOTIFY_API_URL}/albums/?ids=${ids}`).then(toJSON);
 
 export const albumTracks = id =>
-  fetch(`${SPOTIFY_API_URL}/albums/${id}/tracks`).then(data => data.json);
+  fetch(`${APP_CONFIG.SPOTIFY_API_URL}/albums/${id}/tracks`).then(toJSON);

@@ -1,3 +1,5 @@
-const SPOTIFY_API_URL = 'https://api.spotify.com/v1';
+const APP_CONFIG = {
+  SPOTIFY_API_URL: 'https://api.spotify.com/v1',
+}
 
-export default SPOTIFY_API_URL;
+export default APP_CONFIG;

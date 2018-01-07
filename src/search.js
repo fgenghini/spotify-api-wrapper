@@ -1,9 +1,10 @@
-import SPOTIFY_API_URL from './config';
+import APP_CONFIG from './config';
+import toJSON from './utils';
 
 /* global fetch */
 
 export const search = (query, type) =>
-  fetch(`${SPOTIFY_API_URL}/search?q=${query}&type=${type}`).then(data => data.json);
+  fetch(`${APP_CONFIG.SPOTIFY_API_URL}/search?q=${query}&type=${type}`).then(toJSON);
 
 export const searchArtists = query =>
   search(query, 'artist');
