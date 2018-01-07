@@ -10,7 +10,10 @@
     "test:watch": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test",
     "clear": "./node_modules/.bin/rimraf lib",
-    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src"
+    "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-api-wrapper.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-api-wrapper.umd.min.js -p",
+    "build:all": "npm run build && npm run build:umd && npm run build:umd:min"
   },
   "nyc": {
     "reporter": [
@@ -37,6 +40,7 @@
   "homepage": "https://github.com/fgenghini/spotify-api-wrapper#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
@@ -53,6 +57,7 @@
     "rimraf": "^2.6.2",
     "sinon": "^4.1.3",
     "sinon-chai": "^2.14.0",
-    "sinon-stub-promise": "^4.0.0"
+    "sinon-stub-promise": "^4.0.0",
+    "webpack": "^3.10.0"
   }
 }
