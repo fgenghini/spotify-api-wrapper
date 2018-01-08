@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="spotify-albums"></div>
+
+  <script src="../dist/spotify-api-wrapper.umd.min.js" ></script>
+  <script>
+    // Insert you API token here.
+    SpotifyAPIWrapper.setAuthToken('');
+
+    const albums = SpotifyAPIWrapper.searchAlbums('Pearl Jam');
+
+    albums.then(data => {
+
+      const element = document.getElementById('spotify-albums');
+
+      data.albums.items.map((item) => {
+        const img = document.createElement('img');
+        img.src = item.images[0].url;
+        element.appendChild(img);
+      });
+
+    });
+  </script>
+</body>
+</html>
