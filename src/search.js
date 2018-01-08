@@ -1,10 +1,10 @@
 import APP_CONFIG from './config';
 import toJSON from './utils';
-
+import { getAuthHeader } from './authentication';
 /* global fetch */
 
 export const search = (query, type) =>
-  fetch(`${APP_CONFIG.SPOTIFY_API_URL}/search?q=${query}&type=${type}`).then(toJSON);
+  fetch(`${APP_CONFIG.SPOTIFY_API_URL}/search?q=${query}&type=${type}`, getAuthHeader()).then(toJSON);
 
 export const searchArtists = query =>
   search(query, 'artist');

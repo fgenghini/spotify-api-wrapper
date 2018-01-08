@@ -12,6 +12,8 @@ import {
   searchPlaylists,
 } from './search';
 
+import { setAuthToken } from './authentication';
+
 module.exports = {
   search,
   searchAlbums,
@@ -21,4 +23,5 @@ module.exports = {
   album,
   albums,
   albumTracks,
+  setAuthToken,
 };
