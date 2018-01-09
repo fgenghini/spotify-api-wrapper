@@ -12,9 +12,11 @@
   <script src="../dist/spotify-api-wrapper.umd.min.js" ></script>
   <script>
     // Insert you API token here.
-    SpotifyAPIWrapper.setAuthToken('');
+    const spotify = new SpotifyAPIWrapper({
+      apiAuthToken: '',
+    });
 
-    const albums = SpotifyAPIWrapper.searchAlbums('Pearl Jam');
+    const albums = spotify.search.albums('Pearl Jam');
 
     albums.then(data => {
 
